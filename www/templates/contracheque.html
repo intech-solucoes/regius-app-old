@@ -1,0 +1,54 @@
+﻿<ion-view title="Contracheque">
+    <ion-content scroll="true" class="has-header has-footer">
+        <style>
+            .previa {
+                background: #f39b14;
+                padding: 10px;
+                margin-top: 20px;
+                font-size: 12pt;
+            }
+        </style>
+        
+        <form>
+            <div class="list card contracheque-card" ng-repeat="demonstrativo in list">
+                <div class="item data" ng-click="ativar(demonstrativo.Referencia)">
+                    {{demonstrativo.Referencia}}
+                    <div class="previa" ng-show="demonstrativo.Previa">Prévia</div>
+                </div>
+                <div class="item valores" ng-show="demonstrativo.Referencia == dataDetalhe" ng-click="detalhar()">
+                    <div class="row">
+                        <div class="col bruto">
+                            <span>BRUTO</span><br />
+                            {{detalhe.totalizadores.bruto}}
+                        </div>
+
+                        <div class="col descontos">
+                            <span>DESCONTOS</span><br />
+                            {{detalhe.totalizadores.descontos}}
+                        </div>
+
+                        <div class="col liquido">
+                            <span>LÍQUIDO</span><br />
+                            {{detalhe.totalizadores.liquido}}
+                        </div>
+                    </div>
+                    <div style="text-align: center; font-size: 10pt;">
+                        Clique aqui para detalhar
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col col-50">
+                    <div class="bottom-question-in">
+                        <p>Algo errado?</p>
+                    </div>
+                </div>
+
+                <div class="col col-50">
+                    <a ui-sref="contatoInterno" class="button button-block button-small btn-orange btn-small">Fale conosco</a>
+                </div>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>

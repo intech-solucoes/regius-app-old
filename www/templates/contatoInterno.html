@@ -1,0 +1,25 @@
+<ion-view title="Contato">
+    <ion-content scroll="true" padding="true" class="has-header has-footer">
+        <form class="list" ng-submit="sendMail()">
+            <ion-list>
+                <div ng-app ng-controller="contatoInternoCtrl">                    
+                    <div class="form-item-ct">
+                        <label>Email:</label>
+                        <input type="email" name="email" value="{{email}}"  placeholder="Email" required />
+                    </div>
+                    <div class="form-item-ct">
+                        <label>Assunto:</label>
+                        <input type="text" name="assunto" placeholder="Assunto" required />
+                    </div>
+                    <div class="form-item-ct">
+                        <label>Mensagem:</label>
+                        <textarea name="mensagem" rows="10" required placeholder="Digite sua mensagem" ></textarea>                        
+                    </div>
+                    <div class="form-item-ct">
+                        <button class="btn-contact" formnovalidate>Enviar email</button>
+                    </div>
+                </div>
+            </ion-list>
+        </form>
+    </ion-content>
+</ion-view>

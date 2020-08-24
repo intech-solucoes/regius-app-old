@@ -1,0 +1,62 @@
+{
+  "name": "regius",
+  "version": "1.9.0",
+  "repository": "git@git.negociosreais.com.br:intech/regius-mobile.git",
+  "description": "Regius: App para credenciados",
+  "scripts": {
+    "build:android": "ionic cordova build android --release",
+    "build:ios": "ionic cordova build ios --release"
+  },
+  "dependencies": {
+    "@ionic-native/http": "^4.4.2",
+    "cordova-android": "^8.1.0",
+    "cordova-ios": "^4.5.4",
+    "cordova-plugin-device": "^2.0.1",
+    "cordova-plugin-file": "^6.0.2",
+    "cordova-plugin-http": "~1.2.0",
+    "cordova-plugin-whitelist": "~1.2.2",
+    "cordova-windows": "4.4.2",
+    "gulp": "3.9.1",
+    "gulp-concat": "^2.2.0",
+    "gulp-minify-css": "^0.3.0",
+    "gulp-rename": "^1.2.0",
+    "gulp-sass": "^2.0.4",
+    "onesignal-cordova-plugin": "~1.13.1"
+  },
+  "devDependencies": {
+    "@ionic/v1-toolkit": "1.0.5",
+    "bower": "^1.3.3",
+    "colors": "^1.1.2",
+    "gulp-util": "^2.2.14",
+    "inquirer": "^1.0.2",
+    "rimraf": "^2.5.3",
+    "shelljs": "^0.3.0",
+    "xml2js": "^0.4.16"
+  },
+  "cordovaPlugins": [
+    "cordova-plugin-device",
+    "cordova-plugin-console",
+    "cordova-plugin-whitelist",
+    "cordova-plugin-splashscreen",
+    "ionic-plugin-keyboard",
+    "onesignal-cordova-plugin",
+    "cordova-plugin-statusbar"
+  ],
+  "cordovaPlatforms": [
+    "ios",
+    "android"
+  ],
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-device": {},
+      "cordova-plugin-http": {},
+      "cordova-plugin-whitelist": {},
+      "onesignal-cordova-plugin": {}
+    },
+    "platforms": [
+      "ios",
+      "windows",
+      "android"
+    ]
+  }
+}

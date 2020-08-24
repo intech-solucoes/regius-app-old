@@ -1,0 +1,39 @@
+<ion-view title="Resultado da simulação" class="your-future-post">
+    <ion-content padding="true" scroll="true" class="has-header has-footer">
+        <form class="list" ng-submit="postYourFuture()">
+            <ion-list ng-if="results">
+                <div ng-app ng-controller="seuFuturoCtrl">
+                    <div ng-repeat="data in results">
+                        <div class="form-item-ct" ng-if="data.type == 'object'">
+                            <label>{{data.label_title}}</label>
+                            <label class="item item-input item-select rg-select">
+                                <select name="{{data.name}}" class="">
+                                    <option ng-repeat="item in data.value" value="{{item}}">{{item}}</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div class="form-item-ct" ng-if="data.type != 'object'">
+                            <label>{{data.label_title}}</label>
+                            <input type="{{data.type == 'number'? 'number': 'text'}}" class="label-input future-field" value="{{data.value}}" name="{{data.name}}" disabled/>
+                        </div>
+                    </div>
+                </div>
+            </ion-list>
+            <div class="api-loading" ng-show="!results">
+                <p><strong>Carregando</strong>. Por favor aguarde um momento.</p>
+                <ion-spinner icon="lines" class="spinner-balanced"></ion-spinner>
+            </div>
+            <div class="form-item-ct">
+                <label>Importante</label>
+                Esta é uma simulação do benefício considerando as informações cadastrais do participante posicionada na data de realização do cálculo.
+
+                <br/><br/>
+
+                Os cálculo apresentados não são definitivos e resultam em projeções de caráter apenas ilustrativo, não gerando qualquer direito ao recebimento.
+                <br/><br/>
+
+                No valor estimado do benefício foi deduzido o percentual de desconto da Taxa Administrativa, entretanto, não estão sendo considerados outros descontos como Imposto de Renda, Pensão Alimentícia, dentre outros.
+            </div>
+        </form>
+    </ion-content>
+</ion-view>

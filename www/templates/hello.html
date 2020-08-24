@@ -1,0 +1,18 @@
+<ion-view title="Seus planos">
+    <ion-content padding="true" scroll="true" class="has-header" ng-app ng-controller="helloCtrl">
+        <div class="welcome-text">
+            <p>Olá, {{user}}</p>
+        </div>
+        <div class="welcome-text-bottom">
+            <p>Você possui os seguintes planos contratados com a Regius</p>
+        </div>
+        <div class="spacer" style="width: 300px; height: 39px;"></div>
+        <div>
+            {{console.log('plans', plans)}}
+            <div ng-if="plans" ng-repeat="data in plans">
+                <a ui-sref="home" id="plan-{{ data.id }}" class="button button-block btn-orange" ng-click="selectPlan(data)">{{ data.plan }} <p class="menu-subtitle">{{ data.status }}</p></a>
+            </div>
+        </div>        
+        <!--<a ui-sref="contatoInterno" class="button button-block button-small btn-orange btn-small">Fale conosco</a>-->        
+    </ion-content>    
+</ion-view>

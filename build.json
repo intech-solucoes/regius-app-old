@@ -1,0 +1,11 @@
+{
+  "android": {
+    "release": {
+      "keystore": "app.keystore",
+      "storePassword": "Intech123#",
+      "alias": "intech",
+      "password": "Intech123#",
+      "keystoreType": ""
+    }
+  }
+}

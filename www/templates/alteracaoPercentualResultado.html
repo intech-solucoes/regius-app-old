@@ -1,0 +1,25 @@
+<ion-view title="Alteração de percentual de Contribuição">
+        <ion-content padding="true" scroll="true" class="has-header has-footer">
+            <div ng-app ng-controller="alteracaoPercentualResultadoCtrl">
+                <div align="center">
+                    <h4>OBRIGADO! SUA SOLICITACÃO ESTÁ SENDO PROCESSADA.</h4><br/>
+                    <h5>Data da solicitação</h5>
+                    <h5>{{dataSolicitacao}}</h5>
+
+                    <h5><b>Atenção: alterações solicitadas dentro do mês só serão processadas no mês subsequente.</b></h5>
+                    <br/>
+                    <p>Número do Protocolo</p>
+                    <h3>{{protocolo}}</h3>
+                    <br/>
+                    <h5>Para mais informações, entre em contato com a Gerência de Previdência e Relacionamento - GEPRE</h5>
+                    <h5>Atendimento de 2ª a 6ª feira, das 8h às 18h</h5>
+                    <h5>E-mail: relacionamento@regius.org.br</h5>
+                    <h5>Telefone: (61) 3035-4400</h5>
+                    <h5>Endereço: SGAS 902 - Edifício Athenas - Bloco "C" - 2º andar - Brasília - DF</h5>
+                </div>
+                <br/>
+                <button class="button button-block btn-orange" onclick="voltarInicio()">Voltar para o início</button>
+                <button class="button button-block btn-orange" onclick="solicitarNovaAlteracao()">Realizar outra alteração</button>
+            </div>
+        </ion-content>
+    </ion-view>

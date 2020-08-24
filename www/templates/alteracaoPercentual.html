@@ -1,0 +1,52 @@
+<ion-view title="Alteração de percentual de Contribuição">
+    <ion-content padding="true" scroll="true" class="has-header has-footer">
+        <div ng-app ng-controller="alteracaoPercentualCtrl">
+            <div class="form-item-ct">
+                <label>Plano</label>
+                <input type="text" value={{plano}} disabled>
+            </div>
+            <div class="form-item-ct">
+                <label>Salário de Participação (Ref. {{dataReferencia}})</label>
+                <input type="text" value="R$ {{salarioParticipacaoString}}" disabled>
+            </div>
+            <div class="form-item-ct">
+                <label>Percentual de Contribuição Pessoal Atual</label>
+                <input type="text" value="{{percentualAtual}}%" disabled>
+            </div>
+
+            <div class="form-item-ct">
+                <label>Novo Percentual de Contribuição Pessoal</label>
+            </div>
+            <div class="item">
+                <div align="center">
+                    <label>Arraste para alterar o percentual</output>
+                </div>
+                <div class="range">
+                    <label>{{percentualMinimoParticipante}}%</label>
+                    <input type="range" min="{{percentualMinimoParticipante}}" max="{{percentualMaximoParticipante}}" value="{{percentualAtual}}" name="percentualContribuicao" id="percentualContribuicao" oninput="percentualContribuicaoSaida.value = percentualContribuicao.value + '%'" onchange="calcularPercentuais(percentualContribuicao.value)"><br/><br/>
+                    <label>{{percentualMaximoParticipante}}%</label>
+                </div>
+                <div align="center">
+                    <output id="percentualContribuicaoSaida">{{percentualAtual}}%</output>
+                </div>
+            </div><br/>
+            
+            <div class="form-item-ct">
+                <label>Novo Valor da Contribuição Pessoal</label>
+                <input type="text" value="R$ {{contribuicaoPessoalString}}" disabled>
+            </div>
+            <div class="form-item-ct">
+                <label>Percentual de Contribuição Patronal</label>
+                <label style="font-size: 12px;">Máximo de {{percentualMaximoPatrocinadora}}%</label>
+                <input type="text" value="{{percentualContribuicaoPatronal}}%" disabled>
+            </div>
+            <div class="form-item-ct">
+                <label>Valor da Contribuição Patronal</label><br/>
+                <input type="text" value="R$ {{contribuicaoPatronalString}}" disabled>
+            </div>
+            <h6>Dica: Você sabia que a contribuição no percentual de 12% pode ser deduzida da base de cálculo para IR?</h6>
+
+            <button class="button button-block btn-orange" ng-click="proximoPasso()">Próximo >></button>
+        </div>
+    </ion-content>
+</ion-view>

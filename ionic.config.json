@@ -1,0 +1,27 @@
+{
+  "name": "Regius",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic1",
+  "browsers": [
+    {
+      "platform": "android",
+      "browser": "crosswalk",
+      "version": "17.46.448.10"
+    }
+  ],
+  "proxies": [
+    {
+      "path": "/api",
+      "proxyUrl": "http://201.45.185.170/RegiusApi/"
+    }
+  ],
+  "watchPatterns": [
+    "scss/**/*",
+    "www/**/*",
+    "!www/lib/**/*",
+    "!www/**/*.map"
+  ],
+  "id": "0095006d"
+}

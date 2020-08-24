@@ -1,0 +1,22 @@
+<ion-view title="Sua Contribuição">
+    <ion-content padding="true" scroll="true" class="has-header has-footer" ng-app ng-controller="suaContribuicaoCtrl">
+        <form class="list">
+            <ion-list>
+                <div>
+                    <div ng-repeat="data in list.contribuicoes">
+                        <div class="form-item-ct">
+                            <label>{{data.label_title}}</label>
+                            <input type="text" placeholder="" value="{{data.value}}" disabled>
+                        </div>
+                    </div>
+                </div>
+            </ion-list>
+            <button class="button button-block btn-orange" ui-sref="contribution-details">
+                Entenda sua Contribuição
+            </button>
+            <button class="button button-block btn-orange" ui-sref="alteracaoPercentual" ng-if="plano != 1">
+                Altere sua Contribuição
+            </button>
+        </form>
+    </ion-content>
+</ion-view>

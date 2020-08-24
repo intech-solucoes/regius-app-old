@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet" />
+    <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/custom.css" rel="stylesheet" />
+
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/angular/angular-locale_pt-br.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+        <link href="css/ionic.app.css" rel="stylesheet">
+        -->
+    <!-- Remove diacritics -->
+    <script src="lib/angular-remove-diacritics/remove-diacritics.js"></script>
+    <script src="lib/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="lib/ngCordova/dist/ng-cordova.min.js"></script>
+    <script src="lib/ng-file-upload/ng-file-upload-all.min.js"></script>
+
+    <script src="js/config.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/routes.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/directives.js"></script>
+    <script src="js/funcoes.js"></script>
+    <script src="js/recadastramento.js"></script>
+
+    <!-- controllers -->
+    <script src="controllers/userController.js"></script>
+    <script src="controllers/loginController.js"></script>
+    <script src="controllers/logoutController.js"></script>
+    <script src="controllers/helloController.js"></script>
+    <script src="controllers/homeController.js"></script>
+    <script src="controllers/seusDadosController.js"></script>
+    <script src="controllers/suaContribuicaoController.js"></script>
+    <script src="controllers/entendaSuaContribuicaoController.js"></script>
+    <script src="controllers/seuPlanoController.js"></script>
+    <script src="controllers/seuSaldoController.js"></script>
+    <script src="controllers/seuFuturoController.js"></script>
+    <script src="controllers/seuFuturoPostController.js"></script>
+    <script src="controllers/seusEmprestimosController.js"></script>
+    <script src="controllers/contactController.js"></script>
+    <script src="controllers/aboutController.js"></script>
+    <script src="controllers/contrachequeController.js"></script>
+    <script src="controllers/contrachequeDetalheController.js"></script>
+    <script src="controllers/contatoInternoController.js"></script>
+    <script src="controllers/emprestimoController.js"></script>
+    <script src="controllers/emprestimoDetalheController.js"></script>
+    <script src="controllers/emprestimoSimulacaoController.js"></script>
+    <script src="controllers/emprestimoPrestacoesController.js"></script>
+    <script src="controllers/emprestimoConfirmaController.js"></script>
+    <script src="controllers/emprestimoTokenController.js"></script>
+    <script src="controllers/emprestimoFimController.js"></script>
+    <script src="controllers/emprestimoInformeController.js"></script>
+    <script src="controllers/recadastramentoCtrl.js"></script>
+    <script src="controllers/recadastramentoFinalizadoCtrl.js"></script>
+    <script src="controllers/alteracaoPercentualController.js"></script>
+    <script src="controllers/alteracaoPercentualPasso2Controller.js"></script>
+    <script src="controllers/alteracaoPercentualResultadoController.js"></script>
+    <script src="controllers/meusComprovantes.js"></script>
+    <script src="controllers/detalhesComprovante.js"></script>
+
+</head>
+
+<body ng-app="app" animation="slide-left-right-ios7">
+    <div>
+        <div>
+            <ion-nav-bar class="bar-stable" hide-nav-bar="true" ng-controller="userCtrl">
+                <ion-nav-back-button class="button-icon icon ion-ios-arrow-back btn-back"></ion-nav-back-button>
+            </ion-nav-bar>
+
+            <ion-nav-view></ion-nav-view>
+        </div>
+    </div>
+</body>
+
+</html>

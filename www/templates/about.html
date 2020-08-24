@@ -1,0 +1,76 @@
+<ion-view title="Sobre o aplicativo">
+    <ion-content scroll="true" padding="true" class="has-header has-footer">
+        <div class="text-center">
+            Versão {{versao}}
+        </div>
+        <div class="text-center">
+            <br /><br />REGIUS<br /><br />Sociedade Civil de Previdência Privada<br />
+            SGAS 902 - Ed. Athenas - Bloco C - 2 andar<br />
+            Tel: (61) 3035-4400 - Fax: (61) 3035-4409<br />
+            relacionamento@regius.org.br
+        </div>
+        <br /><br /><br /><br />
+
+        <div class="text-center">
+            <a class="button btn-orange" ng-click="openModal()">Termos de Serviço</a>
+        </div>
+
+        <script id="tos.html" type="text/ng-template">
+            <ion-modal-view>
+                <ion-header-bar>
+                    <a class="button" ng-click="closeModal()">Fechar</a>
+                    <h1 class="title">Termos de Uso</h1>
+                </ion-header-bar>
+                <ion-content padding="true" class="tos">
+                    <p>O aplicativo Regius Mobile (aplicativo) foi desenvolvido para você participante, assistido e pensionista (Usuário) dos planos de benefícios de natureza previdenciária complementar, com o objetivo principal de facilitar o acesso aos serviços oferecidos e às informações cadastrais no âmbito da Regius. Assim, você pode usar o Regius Mobile, para a consulta dos dados cadastrais, visualização da última contribuição, consulta do saldo atualizado, visualização do extrato de contribuições, simuladores de benefícios, alteração dos dados cadastrais e o canal fale conosco (por e-mail), consulta dos contratos ativos e/ou liquidados, visualização das prestações, consulta do saldo devedor, simulação, contratação e reforma de novos empréstimos, avisos de valores depositados e quaisquer outras informações de comunicação entre a Regius e seus participantes, assistidos e pensionistas. Os dados ficam disponíveis em seu celular e tablet, com interface amigável, possibilitando que você tenha acesso a todas as informações acerca de seu benefício e empréstimos.</p>
+                    <p>A utilização do aplicativo se dará de acordo com o disposto nos presentes Termos de Uso e Política de Privacidade, com os quais você deve concordar expressamente, em sua integralidade, incluindo eventuais avisos, disclaimers, entre outros, que podem ser exibidos durante a utilização do aplicativo. Caso não aceite ou não concorde com quaisquer das disposições dos Termos, ou quaisquer alterações realizadas nestes, o usuário deverá se abster de utilizar o presente aplicativo.</p>
+                    <br/>
+
+                    <h4>1. Acesso</h4>
+                    <p>Para a utilização do Aplicativo, é necessário informar o login e senha já previamente cadastrados no sítio da REGIUS - Sociedade Civil de Previdência Privada - <a href="http://www.regius.org.br" target="_blank">http://www.regius.org.br</a>.</p>
+                    <br />
+
+                    <h4>2. Utilização de senha segura</h4>
+                    <p>A REGIUS emprega seus melhores esforços para garantir a segurança do cadastro do Usuário, contudo, o sigilo e a segurança do seu nome de usuário e senha são de sua única e exclusiva responsabilidade.</p>
+                    <p>Assim, é de responsabilidade exclusiva do Usuário a escolha de senha segura para acesso ao aplicativo, entendendo-se como segura aquela que contenha caracteres maiúsculos e minúsculos, números e símbolos (@, #, * etc.), devendo mantê-la em segredo.</p>
+                    <p>A senha cadastrada é pessoal e intransferível, não podendo ser informada a terceiros para quaisquer fins, devendo o Usuário utilizar as tecnologias adequadas para proteger a sua privacidade.</p>
+                    <br />
+
+                    <h4>3. Utilização do aplicativo</h4>
+                    <p>A utilização do aplicativo deve se pautar pelo respeito a toda a legislação aplicável, bem como por condutas morais e éticas, declarando o usuário possuir as necessárias autorizações para acessar o Aplicativo, responsabilizando-se exclusivamente.</p>
+                    <p>Ao utilizar o Aplicativo, o usuário expressamente reconhece que a Regius não é responsável pelas decisões financeiras que àquele possa vir a fazer por meio do aplicativo.</p>
+                    <p>O provimento de todos os recursos da Internet é de inteira responsabilidade do Usuário.</p>
+                    <p>Ao utilizar os serviços do aplicativo, o Usuário declara ter lido e concordado com todas as regras constantes do contrato de uso.</p>
+                    <p>A Regius não se responsabiliza por qualquer ação tomada baseada nos dados do aplicativo, já que estes são inseridos pelo próprio Usuário.</p>
+                    <p>Em qualquer circunstância, o Usuário é o único responsável pelo uso que fizer do aplicativo, bem como por eventual conteúdo inserido.</p>
+                    <br />
+
+                    <h4>4. Garantias e responsabilidades</h4>
+                    <p>O acesso ao aplicativo pode ser interrompido, suspenso ou ficar intermitente temporariamente, sem qualquer aviso prévio, em caso de falha de sistema, manutenção, alteração de sistemas, ou por motivos alheios ao controle da Regius.</p>
+                    <p>A Regius não será responsável por quaisquer danos decorrentes de interrupção de acesso ao aplicativo, seja de forma direta ou indireta e/ou às informações, independentemente do motivo que cause essa suspensão, quer ocorra por culpa de terceiros ou não, mesmo estando avisada da possibilidade de tais danos, perdas ou despesas.</p>
+                    <p>A Regius empreenderá todos os esforços para que o aplicativo funcione com a máxima perfeição, entretanto, tal esforço não substitui a necessidade de o Usuário ter seus próprios controles. Ainda, a Regius não pode ser responsabilizada no caso de qualquer instabilidade e/ou mau funcionamento do aplicativo.</p>
+                    <p>O Usuário, igualmente, isenta a Regius de qualquer responsabilidade decorrente do mau uso do aplicativo e pelos danos e prejuízos de toda natureza que possam decorrer da transmissão, difusão, disponibilização, recepção, obtenção ou acesso às informações.</p>
+                    <br />
+
+                    <h4>5. Privacidade</h4>
+                    <p>A privacidade dos Usuários é muito importante para a Regius. Ao nos prover com suas informações pessoais, o usuário autoriza a utilizar as informações estritamente nos termos previstos na nossa Política de Privacidade, que está disponível no sitio da Entidade.</p>
+                    <br />
+
+                    <h4>6. Duração e Finalização</h4>
+                    <p>O acesso ao Aplicativo estará disponível por tempo indeterminado, podendo a Regius a seu exclusivo critério, a qualquer momento e independentemente de motivo ou aviso prévio, suspender ou descontinuar, temporária ou definitivamente, o acesso de Usuários ao aplicativo, sem que seja devida qualquer indenização ou compensação àqueles.</p>
+                    <br />
+
+                    <h4>7. Propriedade Intelectual</h4>
+                    <p>Todo o conteúdo do aplicativo, incluindo marca, nome de domínio, conteúdos das telas relativas aos serviços oferecidos, assim como programas, bancos de dados, documentos e demais utilidades e aplicações que permitem ao Usuário acessar e usar sua conta de Usuário são de propriedade da Regius e estão protegidos por todas as leis e tratados aplicáveis, sendo proibido seu uso indevido ou reprodução.</p>
+                    <br />
+
+                    <h4>8. Disposições Finais</h4>
+                    <p>Todos os itens destes Termos de Uso serão regidos pelas leis vigentes da República Federativa do Brasil. Para dirimir quaisquer controvérsias é eleito o Foro de Brasília no Distrito Federal.</p>
+                    <p>O Usuário consente, expressamente, com a competência desse juízo, e renuncia, neste ato, à competência de qualquer outro foro, por mais privilegiado que seja ou venha a ser.</p>
+                    <p>Em caso de dúvida, reclamação, sugestão ou comentário que você possua com relação ao Aplicativo poderá ser direcionado ao e-mail relacionamento@regius.org.br.</p>
+
+                </ion-content>
+            </ion-modal-view>
+        </script>
+    </ion-content>
+</ion-view>

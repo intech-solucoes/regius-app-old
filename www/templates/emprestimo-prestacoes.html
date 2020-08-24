@@ -1,0 +1,99 @@
+﻿<ion-view title="Simulação e Contratação" cache-view="false">
+    <style>
+        table {
+            width: 100%;
+            border-top: 1px solid #ccc;
+        }
+
+        td {
+            padding: 5px;
+        }
+
+        table tbody tr:nth-child(odd) {
+            background-color: #eee;
+        }
+
+        table tbody tr:nth-child(even) {
+            background-color: #fff;
+        }
+
+        table thead td {
+            font-weight: bold;
+        }
+
+        .has-footer {
+            bottom: 80px;
+        }
+
+        .bar-footer {
+            bottom: 80px;
+            height: 60px;
+        }
+
+        .icon:before {
+            font-size: 14pt;
+        }
+    </style>
+
+    <ion-content scroll="true" class="has-header has-footer">
+        <br />
+        <div style="text-align: center">
+            <img class="passos" src="img/passo2-4.png" />
+            <p style="text-align: center;">Passo 2 de 4 - Prestações</p>
+        </div>
+
+        <p style="padding: 10px;">
+            Selecione a quantidade de parcelas:
+        </p>
+
+        <table>
+            <thead>
+                <tr>
+                    <td></td>
+                    <td>Parcelas</td>
+                    <td>Taxa/mês</td>
+                    <td>Prestação</td>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr ng-repeat="prestacao in solicitacao.parcelas" ng-click="selecionar(prestacao)">
+                    <td style="width:28px;">
+                        <i class="icon ion-ios-circle-filled"
+                           ng-show="verificarCheck(prestacao)"></i>
+                        <i class="icon ion-ios-circle-outline"
+                           ng-show="!verificarCheck(prestacao)"></i>
+                    </td>
+                    <td>{{prestacao.quantidadeParcelas}}</td>
+                    <td>{{prestacao.taxa}}</td>
+                    <td>{{prestacao.valorPrestacao}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <br />
+        <br />
+        <br />
+
+        <script id="modalTaxas.html" type="text/ng-template">
+            <ion-modal-view>
+                <ion-header-bar>
+                    <h1 class="title">{{solicitacao.textoSobreTaxasDeJuros.titulo}}</h1>
+                </ion-header-bar>
+                <ion-content style="padding: 20px;">
+                    <div ng-bind-html=solicitacao.textoSobreTaxasDeJuros.texto></div>
+                    <br/>
+                    <center>
+                        <button class="button btn-orange" ng-click="modal.hide()">Prosseguir</button>
+                    </center>
+                </ion-content>
+            </ion-modal-view>
+        </script>
+
+    </ion-content>
+
+    <ion-footer-bar>
+        <button class="button button-block btn-orange" ng-disabled="!dados.prestacaoSelecionada" ng-click="continuar()">
+            Continuar
+        </button>
+    </ion-footer-bar>
+</ion-view>

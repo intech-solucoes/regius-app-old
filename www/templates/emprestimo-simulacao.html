@@ -1,0 +1,94 @@
+﻿<ion-view title="Simulação e Contratação" cache-view="false">
+    <style>
+        .passos {
+            width: 70%;
+        }
+
+        input {
+            text-align: left;
+        }
+
+        .item .item-divider {
+            font-weight: bold;
+        }
+    </style>
+
+    <ion-content scroll="true" class="has-header has-footer" ng-init="console.debug('a');">
+        <br />
+        <div style="text-align: center">
+            <img class="passos" src="img/passo1-4.png" />
+            <p style="text-align: center;">Passo 1 de 4 - Parâmetros</p>
+        </div>
+
+        <ul class="list">
+
+            <li class="item item-input item-select">
+                <div class="input-label">
+                    Modalidade
+                </div>
+                <select ng-model="dados.modalidade" ng-options="b.modalidade for (a, b) in listaModalidades"></select>
+            </li>
+
+            <li class="item item-input item-select">
+                <div class="input-label">
+                    Data de Crédito
+                </div>
+                <select ng-model="dados.data"
+                    ng-options="d.data for (c, d) in dados.modalidade.dadosContratoConcessao"></select>
+            </li>
+
+            <li class="item item-input item-select">
+                <div class="input-label">
+                    Carência
+                </div>
+                <select ng-model="dados.carencia" ng-options="d for (c, d) in listaCarencias"></select>
+            </li>
+
+            <div class="item item-divider" ng-show="dados.data">
+                Contrato{{dados.data.contratos.length > 1 ? 's' : ''}} a Reformar:
+            </div>
+
+            <li class="item item-toggle" ng-repeat="contrato in dados.data.contratos">
+                {{contrato.numeroContratoValorAReformar}}
+
+                <label class="toggle toggle-balanced">
+                    <input type="checkbox" ng-model="contrato.checked" ng-disabled="!contrato.podeReformar" />
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+
+            <div class="item item-divider" ng-show="dados.data">
+                Valores:
+            </div>
+
+            <li class="item item-input item-stacked-label" ng-show="dados.data">
+                <span class="input-label">Valor Limite:</span>
+                <input type="text" disabled value="{{calcularValorLimite() | currency}}" />
+            </li>
+
+            <li class="item item-input item-stacked-label" ng-show="dados.data">
+                <span class="input-label">Margem Consignável:</span>
+                <input type="text" disabled value="{{calcularMargem() | currency}}" />
+            </li>
+
+            <li class="item item-input item-stacked-label" ng-show="dados.data">
+                <span class="input-label">Valor Solicitado:</span>
+                <input type="text" ng-model="dados.valorSolicitado" />
+            </li>
+            <br />
+
+            <div class="padding">
+                <button class="button button-block btn-orange" ng-disabled="!dados.data && !dados.valorSolicitado"
+                    ng-click="continuar()">
+                    Continuar
+                </button>
+            </div>
+            <br />
+            <br />
+
+        </ul>
+
+    </ion-content>
+</ion-view>

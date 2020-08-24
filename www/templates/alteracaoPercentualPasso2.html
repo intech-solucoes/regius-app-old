@@ -1,0 +1,42 @@
+<ion-view title="Alteração de percentual de Contribuição">
+    <ion-content padding="true" scroll="true" class="has-header has-footer">
+        <div ng-app ng-controller="alteracaoPercentualPasso2Ctrl">
+            <div class="form-item-ct">
+                <label>Plano</label>
+                <input type="text" value="{{plano}}" disabled>
+            </div>
+            <div class="form-item-ct">
+                <label>Percentual de Contribuição Pessoal Atual</label>
+                <input type="text" value="{{percentualAtual}}%" disabled>
+            </div>
+            <div class="form-item-ct">
+                <label>Novo Percentual de Contribuição Pessoal</label>
+                <input type="text" value="{{novoPercentual}}%" disabled>
+            </div>
+
+            <div class="form-item-ct">
+                <label>Valor da Nova Contribuição Pessoal</label>
+                <input type="text" value="R$ {{contribuicaoPessoal}}" disabled>
+            </div>
+
+            <div align="center">
+                <h3>Termos e Condições</h3>
+            </div>
+            <p align="center">
+                O requerente, acima identificado, em conformidade com as regras estabelecidas no Regulamento do Plano de Benefícios vem 
+                requerer a alteração do nível de contribuição individual do Plano, a ser aplicado sobre o seu salário de contribuição a 
+                contar de {{mesInicio}}/{{anoInicio}}, o percentual mensal de {{novoPercentual}}%.
+            </p>
+            
+            <input type="checkbox" id="termos" name="termos" onchange="toggleTermos()">
+            <label for="termos">Li e aceito os termos e condições acima</label>
+            <button class="button button-block btn-orange" ng-disabled="!termoAceito" onclick="gerarToken()">Gerar Token</button>
+
+            <div class="form-item-ct">
+                <label>Insira o token enviado para seu celular</label>
+                <input type="text" id="tokenDigitado" name="tokenDigitado" ng-model="tokenDigitado" ng-disabled="!tokenGerado" onchange="changeTokenDigitado()">
+            </div>
+            <button class="button button-block btn-orange" ng-disabled="!botaoSolicitarHabilitado" onclick="finalizar()">Solicitar Alteração</button>
+        </div>
+    </ion-content>
+</ion-view>

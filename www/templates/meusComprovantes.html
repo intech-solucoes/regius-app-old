@@ -1,0 +1,20 @@
+<ion-view title="Meus Comprovantes">
+    <ion-content padding="true" scroll="true" class="has-header has-footer">
+        <div ng-app ng-controller="meusComprovantesCtrl">
+
+            <h5 align="center">Selecione um comprovante para ver os detalhes</h5>
+            <div ng-repeat="comprovante in comprovantes">
+                <div class="item item-divider">{{comprovante.Data}}</div>
+                <div ng-repeat="x in comprovante.Itens">
+                    <a ng-click="abrirComprovante(x.CodigoIdentificador)" class="item" >
+                        <p><b>{{x.DesFuncionalidade}}</b></p>
+                        <p>Protocolo: {{x.CodigoIdentificador}}</p>
+                        <p>Solicitado em: {{x.DataSolicitacaoString}}</p>
+                        <p>Efetivado em: {{x.DataEfetivacaoString}}</p>
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+    </ion-content>
+</ion-view>

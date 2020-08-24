@@ -1,0 +1,75 @@
+﻿<ion-view title="Contracheque Detalhe">
+    <ion-content scroll="true" class="has-header has-footer">
+
+        <style>
+            .item {
+                font-size: 14px;
+                white-space: normal;
+                padding: 0px;
+            }
+
+            .valor {
+                text-align: right;
+            }
+
+            h3 {
+                text-align: center;
+            }
+
+            .contracheque-card {
+                width: auto;
+            }
+
+            .ion-plus-circled {
+                color: #00c61c;
+            }
+
+            .ion-minus-circled {
+                color: #ff0000;
+                text-wrap: normal;
+            }
+        </style>
+
+        <h3><i class="ion-plus-circled"></i> RENDIMENTOS</h3>
+
+        <ul class="list list-inset">
+            <li class="item" ng-repeat="item in contracheque.rubricas" ng-if="item.valor > 0">
+                <div class="row">
+                    <div class="col col-67">{{item.rubrica}}</div>
+                    <span class="col valor">{{item.valor | currency}}</span>
+                </div>
+            </li>
+        </ul>
+
+        <h3><i class="ion-minus-circled"></i> DESCONTOS</h3>
+
+        <ul class="list list-inset">
+            <li class="item" ng-repeat="item in contracheque.rubricas" ng-if="item.valor < 0">
+                <div class="row">
+                    <div class="col col-67">{{item.rubrica}}</div>
+                    <span class="col valor">{{item.valor | currency}}</span>
+                </div>
+            </li>
+        </ul>
+
+        <div class="card contracheque-card valores row">
+            <div class="col bruto">
+                <span>BRUTO</span><br />
+                {{contracheque.totalizadores.bruto}}
+            </div>
+
+            <div class="col descontos">
+                <span>DESCONTOS</span><br />
+                {{contracheque.totalizadores.descontos}}
+            </div>
+
+            <div class="col liquido">
+                <span>LÍQUIDO</span><br />
+                {{contracheque.totalizadores.liquido}}
+            </div>
+        </div>
+        <br />
+        <br />
+
+    </ion-content>
+</ion-view>

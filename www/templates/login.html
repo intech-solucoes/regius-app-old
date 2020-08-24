@@ -1,0 +1,62 @@
+<ion-view hide-nav-bar="true" title="Login">
+    <style>
+        .form-item label {
+            color: #FFF;
+        }
+    </style>
+
+    <ion-content overflow-scroll="false" padding="true" scroll="true" style="background-color: #a3a543">
+        <div style="text-align: center;">
+            <img src="img/logo2_negativa.png" style="width: 200px;" />
+        </div>
+
+        <form class="list login-form">
+            <ion-list>
+                <div class="form-item">
+                    <label class="item item-input item-select login-select">
+                        <div class="input-label"></div>
+
+                        <select class="input" id="company" ng-model="loginData.company"
+                            ng-options="item.id as item.name for item in companies">
+                            <option value="">
+                                {{ companies ? "SELECIONE SUA EMPRESA" : "CARREGANDO EMPRESAS..." }}
+                            </option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="form-item">
+                    <label>Matrícula</label>
+                    <input type="text" id="username" class="input" ng-model="loginData.username" value="{{username}}" />
+                </div>
+
+                <div class="form-item">
+                    <label>Senha</label>
+                    <input type="password" id="password" class="input" ng-model="loginData.password">
+                </div>
+            </ion-list>
+
+            <div class="spacer" style="width: 285px; height: 16px;"></div>
+
+            <a class="button button-block btn-white" ng-click="login()"><i class="icon ion-loading-c"></i> Acessar</a>
+        </form>
+
+        <div class="divider"></div>
+
+        <div class="row">
+            <div class="col col-50">
+                <div class="bottom-question">
+                    <p>Problemas ao acessar?</p>
+                </div>
+            </div>
+
+            <div class="col col-50">
+                <a ui-sref="contato" class="button button-block button-small btn-orange btn-small">Fale conosco</a>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <a ui-sref="about" class="about">Sobre o aplicativo</a>
+        </div>
+    </ion-content>
+</ion-view>

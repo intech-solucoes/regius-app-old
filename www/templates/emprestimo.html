@@ -1,0 +1,58 @@
+<ion-view title="Empréstimos" cache-view="false">
+    <style>
+        .card {
+            padding: 10px;
+        }
+
+        .card .campo {
+            margin-bottom: 10px;
+        }
+
+        .has-footer {
+            bottom: 80px;
+        }
+
+        .bar-footer {
+            bottom: 80px;
+            height: 60px;
+        }
+    </style>
+    
+    <ion-content padding="true" scroll="true" class="has-header has-footer">
+        <p ng-show="listaEmprestimos.contratos.length > 0">
+            {{listaEmprestimos.mensagem}}
+        </p>
+
+        <button ng-show="possuiInforme" class="button button-block button-small btn-orange" ng-click="exibirInforme()">
+            Informe de Rendimentos de Empréstimos
+        </button>
+
+        <div class="list card" ng-repeat="emprestimo in listaEmprestimos.contratos">
+            <div class="campo" ng-repeat="item in emprestimo.contrato">
+                <b>{{item.label_title}}</b><br />
+                {{item.value}}<br/>
+            </div>
+
+            <button class="button button-block button-small btn-orange" ng-click="detalhar(emprestimo)" ng-show="!emprestimo.emDeferimento">
+                Detalhar Prestações
+            </button>
+
+            <div class="button button-block button-small button-assertive" style="opacity: 1;" ng-disabled="true" ng-show="emprestimo.emDeferimento">
+                Contrato em deferimento
+            </div>
+        </div>
+
+        <div ng-show="listaEmprestimos.contratos.length == 0">
+            <p>Você não possui nenhum empréstimo contratado nesse plano com a Regius!</p>
+        </div>
+        <br/>
+        <br/>
+        <br/>
+    </ion-content>
+
+    <ion-footer-bar ng-show="listaEmprestimos.habilitaSimulacao">
+        <button class="button button-block btn-orange" ng-click="simular()">
+            Simule e contrate aqui
+        </button>
+    </ion-footer-bar>
+</ion-view>

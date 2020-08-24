@@ -1,0 +1,45 @@
+<ion-view title="Informe de Empréstimos" cache-view="false">                                              
+    <ion-content padding="true" scroll="true" class="has-header">
+        <Style>
+            small {
+                color: #f39c12;
+                font-weight: bold;
+            }
+        </Style>
+
+        <ul class="list">
+            <li class="item item-input item-select">
+                <div class="input-label">
+                    Referência:
+                </div>
+                <select ng-model="anoSelecionado" ng-options="b for (a, b) in listaAnos" ng-change="selecionarAno(anoSelecionado)"></select>
+            </li>
+        </ul>
+ 
+        <ion-list>
+            <div class="form-item-ct">
+                <label>Contratos:</label><br/>
+                <span>{{informe.Contratos}}</span>
+            </div>
+            <br/>
+            <div class="form-item-ct">
+                <label>Saldo Atual:</label> <small>({{informe.SaldoAtual.Referencia | date:'dd/MM/yyyy'}})</small> <br/>
+                <span>{{informe.SaldoAtual.Valor | currency}}</span>
+            </div>
+            <br/>
+            <div class="form-item-ct">
+                <label>Saldo Anterior</label> <small>({{informe.SaldoAnterior.Referencia | date:'dd/MM/yyyy'}})</small> <br/>
+                <span>{{informe.SaldoAnterior.Valor | currency}}</span>
+            </div>
+            <br/>
+            <div class="form-item-ct">
+                <label>Valor Pago no Ano:</label><br/>
+                <span>{{informe.ValorPagoAno | currency}}</span>
+            </div>
+        </ion-list>
+        <br/>
+        <br/>
+        <br/>
+        
+    </ion-content>
+</ion-view>

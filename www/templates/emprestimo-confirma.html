@@ -1,0 +1,37 @@
+﻿<ion-view title="Simulação e Contratação">
+    <style>
+        .form-item-ct label {
+            margin-bottom: 0px;
+        }
+    </style>
+
+    <ion-content scroll="true" class="has-header has-footer">
+        <br />
+        <div style="text-align: center">
+            <img class="passos" src="img/passo3-4.png" />
+            <p style="text-align: center;">Passo 3 de 4 - Resumo da Simulação</p>
+        </div>
+
+        <div class="padding">
+            <ion-list>
+                <div>
+                    <div ng-repeat="data in dados.campos">
+                        <div class="form-item-ct">
+                            <label>{{data.label_title}}</label><br />
+                            <span>{{data.value}}</span>
+                        </div>
+                        <br/>
+                    </div>
+                </div>
+            </ion-list>
+
+            <button class="button button-block btn-orange" ng-click="contratar()">
+                Contratar
+            </button>
+
+            <button class="button button-block btn-orange" ng-click="finalizar()">
+                Finalizar Simulação
+            </button>
+        </div>
+    </ion-content>
+</ion-view>

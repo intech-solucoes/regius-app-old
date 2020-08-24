@@ -1,0 +1,36 @@
+<ion-view ng-init="init();" view-title="Recadastramento">
+    <ion-content scroll="true" padding="true" class="has-header has-footer">
+
+        <center>
+            <h4>Seu recadastramento está sendo processado.</h4>
+            <br/>
+
+            <h4>Data de Solicitação</h4>
+            {{solicitacao.dataSolicitacao}}
+            
+            <br/><br/>
+            
+            <h4>Número do protocolo:</h4>
+            <h3>{{solicitacao.numeroProtocolo}}</h3>
+            <br/>
+
+            <small>
+                Para mais informações, entre em contato com a Gerência de Previdência e Relacionamento - GEPRE.<br/>
+                <br/>
+                Atendimento de 2ª a 6ª feira, das 8h às 18h <br/>
+                E-mail: relacionamento@regius.org.br<br/>
+                Telefone: (61) 3035-4400  <br/>
+                Endereço: SGAS 902 - Edifício Athenas - Bloco “C” - 2º andar - Brasília – DF<br/>
+            </small>
+            
+            <button class="button button-block btn-orange" ng-click="novo()">
+                Iniciar Novo Recadastramento
+            </button>
+
+            <button class="button button-block btn-orange" ng-click="inicio()">
+                Voltar para o Início
+            </button>
+        </center>
+
+    </ion-content>
+</ion-view>

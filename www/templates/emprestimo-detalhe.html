@@ -1,0 +1,57 @@
+﻿<style>
+    table {
+        width: 100%;
+        border-top: 1px solid #ccc;
+    }
+
+    td {
+        padding: 5px;
+    }
+
+    table tbody tr:nth-child(odd) {
+        background-color:#eee;
+    }
+
+    table tbody tr:nth-child(even) { 
+        background-color:#fff;
+    }
+
+    table thead td {
+        font-weight: bold;
+    }
+</style>
+
+<ion-view title="Empréstimos">
+    <ion-content scroll="true" class="has-header has-footer">
+        <div style="padding: 10px;">
+            Histórico de prestações do contrato de empréstimos Nº {{numero}}/{{ano}}:
+        </div>
+
+        <div style="padding: 10px;">
+            <b>Parcelas:</b> {{listaParcelas.parcela}}
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <td>Nº</td>
+                    <td>Data</td>
+                    <td>Recebido</td>
+                    <td>Saldo Devedor</td>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr ng-repeat="parcela in listaParcelas.prestacoes">
+                    <td>{{parcela.parcela}}</td>
+                    <td>{{parcela.data}}</td>
+                    <td>{{parcela.valorRecebido}}</td>
+                    <td>{{parcela.valorSaldoDevedor}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <br />
+        <br />
+        <br />
+    </ion-content>
+</ion-view>

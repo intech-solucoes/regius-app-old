@@ -1,0 +1,234 @@
+<ion-view view-title="Recadastramento">
+    <ion-content scroll="true" padding="true" class="has-header has-footer">
+
+        <style>
+            fieldset {
+                margin-top: 20px;
+            }
+
+            fieldset legend {
+                display: block;
+                padding: 5px;
+                width: 100%;
+                border: 1px solid #ddd;
+                color: #444;
+                font-size: 21px;
+                line-height: initial;
+                margin-top: 50px;
+                text-align: center;
+            }
+
+            .item-select select {
+                padding: 0px;
+                right: auto;
+            }
+        </style>
+
+        <div ng-if="passo == 0">
+            <h2>Instruções</h2>
+            <small>
+                Bem-vindo(a) ao <b>Recadastramento</b> do Regius Mobile.<br />
+                <br />
+                Manter o seu cadastro atualizado é muito importante. Clique no botão <b>Iniciar Recadastramento</b>,
+                logo abaixo,
+                para conferir e atualizar seus dados pessoais e de seus dependentes.<br />
+                <br />
+                Anexe uma foto dos documentos comprobatórios quando houver a necessidade de inclusão, exclusão ou
+                alterações
+                de dependentes, tais como: certidão de casamento, certidão de nascimento, averbação de separação
+                judicial ou dentre outros.<br />
+                <br />
+                Para mais informações, entre em contato com a Gerência de Previdência e Relacionamento - GEPRE.<br />
+                <br />
+                Atendimento de 2ª a 6ª feira, das 8h às 18h<br />
+                E-mail: <b>relacionamento@regius.org.br</b><br />
+                Telefone: (61) 3035-4400<br />
+                Endereço: SGAS 902 - Edifício Athenas - Bloco “C” - 2º andar - Brasília – DF<br />
+                <b>www.regius.org.br</b>
+            </small><br />
+            <br />
+
+            <a class="button button-block btn-orange" ng-click="iniciar()">Iniciar Recadastramento</a>
+        </div>
+
+        <div ng-if="passo != 0">
+            <h2>{{recadastramento.Titulo}}</h2>
+            <h4>{{recadastramento.Subtitulo}}</h4>
+
+            <small>{{recadastramento.MensagemInicio}}</small>
+            <br />
+            <br />
+
+            <form enctype="multipart/form-data" method="post" class="list">
+
+                <ion-list>
+
+                    <div ng-repeat="grupo in recadastramento.GrupoCampos">
+
+                        <!-- Se não é um grupo -->
+                        <div ng-if="grupo.Titulo == ''">
+                            <div class="form-item-ct" ng-repeat="campo in grupo.Campos">
+                                <div>{{campo.Titulo}}</div>
+
+                                <div ng-if="campo.PodeComprovar">
+                                    <div class="item-input-inset" style="padding: 0px;">
+
+                                        <input type="text"
+                                            ng-show="campo.TipoCampo == 'TXT' || campo.TipoCampo == 'EMA'"
+                                            style="margin-bottom: 0px;" maxlength="{{campo.MaxSize}}"
+                                            class="{{campo.CssClassValidation}}" ng-disabled="!campo.Editavel"
+                                            ng-model="campo.NovoValor" />
+
+                                        <!-- Combo -->
+                                        <label ng-show="campo.TipoCampo == 'CMB'" style="margin-bottom: 0px;"
+                                            class="item item-input item-select">
+                                            <select ng-model="campo.NovoValorCombo"
+                                                ng-options="item.Value as item.Value for item in campo.Valores"></select>
+                                        </label>
+
+                                        <button class="button button-small btn-orange"
+                                            ng-click="selecionarAnexo(campo, false)">
+                                            <i class="fa fa-file-o"></i>
+                                        </button>
+
+                                        <input type="file" ng-show="false" id="{{campo.ID}}" name="fileInput"
+                                            custom-on-change="anexoSelecionado" ngf-select ng-model="files"
+                                            ngf-multiple="true" />
+                                    </div>
+
+                                    <button class="button button-small button-block button-assertive"
+                                        ng-show="campo.ComprovacaoAnexada" ng-click="removerArquivo(campo, false)">
+                                        <i class="fa fa-trash"></i> Remover Anexo
+                                    </button>
+                                    <br />
+                                </div>
+
+                                <!-- Texto -->
+                                <input ng-if="!campo.PodeComprovar"
+                                    ng-show="campo.TipoCampo == 'TXT' || campo.TipoCampo == 'EMA'" type="text"
+                                    ng-model="campo.NovoValor" maxlength="{{campo.MaxSize}}"
+                                    class="{{campo.CssClassValidation}}" ng-disabled="!campo.Editavel" />
+
+                                <!-- Combo -->
+                                <label ng-if="!campo.PodeComprovar" ng-show="campo.TipoCampo == 'CMB'"
+                                    class="item item-input item-select">
+                                    <select ng-model="campo.NovoValorCombo"
+                                        ng-options="item.Value as item.Value for item in campo.Valores"></select>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Se é um grupo -->
+                        <fieldset ng-if="grupo.Titulo != ''">
+                            <legend>{{grupo.Titulo}}</legend>
+
+                            <small>{{grupo.Mensagem}}</small>
+
+                            <div class="form-item-ct" ng-repeat="campo in grupo.Campos">
+                                <div>{{campo.Titulo}}</div>
+
+                                <div ng-if="campo.PodeComprovar">
+                                    <div class="item-input-inset" style="padding: 0px;">
+
+                                        <input type="text"
+                                            ng-show="campo.TipoCampo == 'TXT' || campo.TipoCampo == 'EMA'"
+                                            style="margin-bottom: 0px;" maxlength="{{campo.MaxSize}}"
+                                            class="{{campo.CssClassValidation}}" ng-disabled="!campo.Editavel"
+                                            ng-model="campo.NovoValor" />
+
+                                        <!-- Combo -->
+                                        <label ng-show="campo.TipoCampo == 'CMB'" style="margin-bottom: 0px;"
+                                            class="item item-input item-select">
+                                            <select ng-model="campo.NovoValorCombo"
+                                                ng-options="item.Value as item.Value for item in campo.Valores"></select>
+                                        </label>
+
+                                        <button class="button button-small btn-orange"
+                                            ng-click="selecionarAnexo(campo, false)">
+                                            <i class="fa fa-file-o"></i>
+                                        </button>
+
+                                        <input type="file" ng-show="false" id="{{campo.ID}}" name="fileInput"
+                                            custom-on-change="anexoSelecionado" ngf-select ng-model="files"
+                                            ngf-multiple="true" />
+                                    </div>
+
+                                    <button class="button button-small button-block button-assertive"
+                                        ng-show="campo.ComprovacaoAnexada" ng-click="removerArquivo(campo, false)">
+                                        <i class="fa fa-trash"></i> Remover Anexo
+                                    </button>
+                                    <br />
+                                </div>
+
+                                <!-- Texto -->
+                                <input ng-if="!campo.PodeComprovar"
+                                    ng-show="campo.TipoCampo == 'TXT' || campo.TipoCampo == 'EMA'" type="text"
+                                    ng-model="campo.NovoValor" maxlength="{{campo.MaxSize}}"
+                                    class="{{campo.CssClassValidation}}" ng-disabled="!campo.Editavel" />
+
+                                <!-- Combo -->
+                                <label ng-if="!campo.PodeComprovar" ng-show="campo.TipoCampo == 'CMB'"
+                                    class="item item-input item-select">
+                                    <select ng-model="campo.NovoValorCombo"
+                                        ng-options="item.Value as item.Value for item in campo.Valores"></select>
+                                </label>
+                            </div>
+
+                            <div class="form-item-ct" ng-if="grupo.PodeComprovar">
+                                <button class="button button-small button-block btn-orange"
+                                    ng-click="selecionarAnexo(grupo, true)">
+                                    <i class="fa fa-file-o"></i> Anexar Arquivo
+                                </button>
+
+                                <button class="button button-small button-block button-assertive"
+                                    ng-click="removerArquivo(grupo, true)" ng-show="grupo.ComprovacaoAnexada">
+                                    <i class="fa fa-trash"></i> Remover Anexo
+                                </button>
+                            </div>
+
+                            <div class="form-item-ct" ng-if="grupo.PodeExcluir" ng-show="!grupo.Excluir">
+                                <button class="button button-small button-block button-assertive"
+                                    ng-click="removerGrupo(grupo)">
+                                    <i class="fa fa-trash"></i> Remover Item
+                                </button>
+                            </div>
+
+                            <div class="form-item-ct" ng-if="grupo.PodeExcluir" ng-show="grupo.Excluir">
+                                <button class="button button-small button-block button-assertive"
+                                    ng-click="desfazerRemocao(grupo)">
+                                    <i class="fa fa-undo"></i> Desfazer Remoção do Item
+                                </button>
+                            </div>
+                        </fieldset>
+                    </div>
+                </ion-list>
+
+                <small>{{recadastramento.MensagemFim}}</small>
+                <br />
+
+                <div class="row">
+                    <div class="col">
+                        <a class="button button-small button-block btn-orange" ng-click="voltar()">
+                            <i class="fa fa-chevron-left"></i>
+                            Passo Anterior
+                        </a>
+                    </div>
+
+                    <div class="col">
+                        <a class="button button-small button-block btn-orange" ng-click="avancar()"
+                            ng-if="passo != totalPassos">
+                            Próximo Passo
+                            <i class="fa fa-chevron-right"></i>
+                        </a>
+
+                        <a class="button button-small button-block btn-orange" ng-click="avancar()"
+                            ng-if="passo == totalPassos">
+                            Finalizar
+                            <i class="fa fa-check"></i>
+                        </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </ion-content>
+</ion-view>

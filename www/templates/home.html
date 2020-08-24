@@ -1,0 +1,13 @@
+<ion-view title="" class="home-view" ng-init="init()" cache-view=“false”>
+    <ion-content scroll="true" padding="true" class="has-header has-footer">
+        <div class="" ng-repeat="data in list">
+            <a href="#{{ data.menu_url }}" class="col col-50 home-item" 
+               ng-click="erasePlan(data.menu_url)" ng-show="{{data.menu_visible}}">
+                <img class="home-btn-icon" ng-src="{{ loadImage(data.id) }}"><br/>
+                <span class="plan-title">{{ data.menu_title }}</span><br/>
+                <span class="plan-subtitle">{{ data.menu_subtitle }}</span>
+            </a>
+        </div>        
+    </ion-content>
+    <button ui-sref="contatoInterno" class="btn-contact">Fale conosco</button>
+</ion-view>

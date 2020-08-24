@@ -1,0 +1,13 @@
+{
+  "name": "HelloIonic",
+  "private": "true",
+  "devDependencies": {
+    "ionic": "driftyco/ionic-bower#1.2.4"
+  },
+  "dependencies": {
+    "ngCordova": "^0.1.27-alpha",
+    "angular-remove-diacritics": "latest",
+    "font-awesome": "^4.6.3",
+    "ng-file-upload": "^12.2.13"
+  }
+}

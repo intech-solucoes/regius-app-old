@@ -1,0 +1,39 @@
+﻿<ion-view title="Simulação e Contratação" cache-view="false">
+    <style>
+        .icon:before {
+            font-size: 20pt;
+        }
+    </style>
+
+    <ion-content scroll="true" class="has-header has-footer">
+        <br />
+        <div style="text-align: center">
+            <img class="passos" src="img/passo4-4.png" />
+            <p style="text-align: center;">Passo 4 de 4 - Contratar Empréstimo</p>
+        </div>
+
+        <div style="padding: 10px;">
+            <div ng-click="toggleAceita()" style="display: table-cell; padding-right: 10px;">
+                <i class="icon ion-android-checkbox-outline" ng-show="aceita"></i>
+                <i class="icon ion-android-checkbox-outline-blank"ng-show="!aceita"></i>
+            </div>
+
+            <div style="display: table-cell;">
+                Li e aceito os termos e condições contidos no CONTRATO ÚNICO, firmado com a REGIUS e vigente nesta data.
+            </div>
+
+            <button class="button button-block btn-orange" ng-click="gerarToken()">
+                Gerar token
+            </button>
+            <br/>
+            <div class="form-item-ct">
+                <label>Insira o token enviado para o seu celular:</label>
+                <input type="text" ng-model="dados.tokenEnviado" />
+            </div>
+
+            <button class="button button-block btn-orange" ng-click="contratar()" ng-disabled="!dados.tokenEnviado && dados.tokenEnviado == ''">
+                Contratar Empréstimo
+            </button>
+        </div>
+    </ion-content>
+</ion-view>

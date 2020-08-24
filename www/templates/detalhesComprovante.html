@@ -1,0 +1,73 @@
+<ion-view title="Meus Comprovantes">
+    <ion-content padding="true" scroll="true" class="has-header has-footer">
+        <div ng-app ng-controller="detalhesComprovanteCtrl">
+
+            <h3>Comprovante de Transação</h3>
+            <h4>Dados do Participante/Pensionista</h4>
+            <br/>
+
+            <div class="smallTitle">Nome</div>
+            <h5>{{dadosComprovante.UsuarioSolicitacao}}</h5>
+            <br/>
+
+            <div class="smallTitle">Plano</div>
+            <h5>{{dadosComprovante.DsPlano}}</h5>
+            <br/>
+
+            <h4>Dados da Transação</h4>
+            <br/>
+
+            <div class="smallTitle">Número de Protocolo</div>
+            <h5>{{dadosComprovante.CodigoIdentificador}}</h5>
+            <br/>
+
+            <div class="smallTitle">Data da Solicitação</div>
+            <h5>{{dadosComprovante.DataSolicitacaoString}}</h5>
+            <br/>
+
+            <div class="smallTitle">Data da Efetivação</div>
+            <h5>{{dadosComprovante.DataEfetivacaoString}}</h5>
+            <br/>
+
+            <div class="smallTitle">Solicitado por</div>
+            <h5>{{dadosComprovante.UsuarioSolicitacao}}</h5>
+            <br/>
+
+            <div class="smallTitle">Efetivado por</div>
+            <h5>{{dadosComprovante.UsuarioEfetivacao}}</h5>
+            <br/>
+
+            <div class="smallTitle" ng-if="temRecusa">Motivo da recusa</div>
+            <h5 ng-if="temRecusa">{{dadosComprovante.MotivoRecusa}}</h5>
+
+            <h4>Resumo da Transação</h4>
+            <br/>
+
+            <div ng-repeat="item in dadosComprovante.ListaTransacao">
+                <div class="smallTitle">{{item.Titulo}}</div>
+                <h5>{{item.Valor}}</h5>
+                <br/>
+            </div>
+
+            <h4>Dados Técnicos</h4>
+            <br/>
+
+            <div class="smallTitle">Endereço IPV4</div>
+            <h5>{{dadosComprovante.IPV4Externo}}</h5>
+            <br/>
+
+            <div class="smallTitle">Endereço IPV6</div>
+            <h5>{{dadosComprovante.IPV6}}</h5>
+            <br/>
+
+            <div class="smallTitle">Dispositivo</div>
+            <h5>{{dadosComprovante.Dispositivo}}</h5>
+            <br/>
+
+            <div class="smallTitle">Origem</div>
+            <h5>{{dadosComprovante.Origem}}</h5>
+            <br/>
+
+        </div>
+    </ion-content>
+</ion-view>

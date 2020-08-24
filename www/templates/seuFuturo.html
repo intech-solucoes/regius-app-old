@@ -1,0 +1,25 @@
+<ion-view title="Seu Futuro">
+    <ion-content padding="true" scroll="true" class="has-header has-footer">
+        <form class="list" ng-submit="postYourFuture()">
+            <ion-list>
+                <div ng-app ng-controller="seuFuturoCtrl">
+                    <div ng-repeat="data in list">
+                        <div class="form-item-ct" ng-if="data.type == 'object'">
+                            <label>{{data.label_title}}</label>
+                            <label class="item item-input item-select rg-select">
+                                <select name="{{data.name}}" class="">
+                                    <option ng-repeat="item in data.value" value="{{item}}">{{item}}</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div class="form-item-ct" ng-if="data.type != 'object'">
+                            <label>{{data.label_title}}</label>
+                            <input type="{{data.type == 'number'? 'number': 'text'}}" placeholder="" class="label-input future-field" value="{{data.value}}" min="{{data.min}}" max="{{data.max}}" ng-disabled="{{data.disabled}}" name="{{data.name}}" ng-model="name2data[data.name].model" ng-change="yourFutureFieldChange()" />
+                        </div>
+                    </div>
+                </div>
+            </ion-list>
+            <input type="submit" class="button button-block btn-orange" formnovalidate value="Simular" />
+        </form>
+    </ion-content>
+</ion-view>
