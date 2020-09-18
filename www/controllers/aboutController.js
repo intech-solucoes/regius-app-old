@@ -5,7 +5,7 @@ regius.controller('aboutCtrl', function ($scope, $ionicModal) {
   //     $scope.versao = appVersion;
   //   });
   // } else {
-  $scope.versao = "1.16.0";
+  $scope.versao = "1.16.3";
   //}
 
   $ionicModal.fromTemplateUrl('tos.html', {
